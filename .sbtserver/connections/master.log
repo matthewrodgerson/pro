@@ -1,0 +1,55 @@
+New log file opened at Thu Jun 25 13:49:22 BST 2015 by 4136@JHC3017
+Taking next connection to: 50516
+New client attempting to connect on port: 50517-50516
+  Address = /172.19.20.57:50516
+This client on port 50517 has uuid 91035b3b-2114-45c6-86f2-8f48ca4305dd configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-91035b3b-2114-45c6-86f2-8f48ca4305dd
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+New client attempting to connect on port: 50556-50516
+  Address = /172.19.20.57:50516
+Handshake exception on socket: 50556
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 50516
+New client attempting to connect on port: 50557-50516
+  Address = /172.19.20.57:50516
+This client on port 50557 has uuid 72013058-4353-4a7a-9246-3376ccb62955 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-91035b3b-2114-45c6-86f2-8f48ca4305dd, activator-72013058-4353-4a7a-9246-3376ccb62955
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 50516
