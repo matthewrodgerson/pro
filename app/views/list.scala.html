@@ -1,0 +1,33 @@
+@* list Template File *@
+@(projectList: List[domain.Project], searchTerm:String)
+
+<div class="row">
+
+  @helper.form(action=routes.Application.searchProjects()) {
+    <input type="search" id="searchbox" name="f" value="@searchTerm" placeholder="Filter by name...">
+    <input type="submit" id="searchsubmit" value="Filter by name" class="btn btn-primary">
+  }
+
+</div> 
+
+
+      <h2 class="sub-header">Project List</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+       <tbody>
+    
+      @for(item <- projectList) {
+
+        <tr>
+          <td>@item.projectCode</td>
+          <td>@item.projectDesc</td>
+        </tr>  
+
+      } 
+       </tbody>
