@@ -1,5 +1,6 @@
 @* list Template File *@
-@(projectList: List[domain.Project], searchTerm:String)
+@(projectList: List[domain.Project], searchTerm:String, perPage:Int, pageNo:Int)
+
 
 <div class="row">
 
@@ -10,6 +11,15 @@
 
 </div> 
 
+
+<div class="row">
+
+  @helper.form(action=routes.Application.displayProjList()) {
+    <input type="search" id="searchbox" name="pn" value="@searchTerm" placeholder="Display page...">
+    <input type="submit" id="searchsubmit" value="Display page" class="btn btn-primary">
+  }
+
+</div> 
 
       <h2 class="sub-header">Project List</h2>
           <div class="table-responsive">
