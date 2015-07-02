@@ -10,8 +10,8 @@ trait SqlestDb {
   //val dataSource = DB.getDataSource()
     val dataSource = {
     val dataSource = new AS400JDBCConnectionPoolDataSource("tracey.servers.jhc.co.uk")
-    dataSource.setUser("")
-    dataSource.setPassword("")
+    dataSource.setUser("RTUSER")
+    dataSource.setPassword("RTUSER")
     dataSource.setLibraries("JHCJUTIL")
     dataSource.setNaming("system")
     dataSource.setPrompt(false)

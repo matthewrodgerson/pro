@@ -1,25 +1,23 @@
 @* list Template File *@
 @(projectList: List[domain.Project], searchTerm:String, perPage:Int, pageNo:Int)
 
+<div class="row">
+   <th>Search text</th>
+   <th>Records per page</th>
+   <th>Page number</th>
+</div> 
 
 <div class="row">
 
   @helper.form(action=routes.Application.searchProjects()) {
     <input type="search" id="searchbox" name="f" value="@searchTerm" placeholder="Filter by name...">
-    <input type="submit" id="searchsubmit" value="Filter by name" class="btn btn-primary">
+    <input type="search" id="searchbox" name="pp" value="@perPage" placeholder="Records per page...">
+    <input type="search" id="searchbox" name="pn" value="@pageNo" placeholder="Page number...">
+    <input type="submit" id="searchsubmit" value="Update display" class="btn btn-primary">
   }
 
 </div> 
 
-
-<div class="row">
-
-  @helper.form(action=routes.Application.displayProjList()) {
-    <input type="search" id="searchbox" name="pn" value="@searchTerm" placeholder="Display page...">
-    <input type="submit" id="searchsubmit" value="Display page" class="btn btn-primary">
-  }
-
-</div> 
 
       <h2 class="sub-header">Project List</h2>
           <div class="table-responsive">
