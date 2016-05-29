@@ -6,8 +6,9 @@ import domain.Project
 /**
  * @author RodgersonM
  */
-class ProjectTable(alias: Option[String]) extends Table("project", alias) {
-  val projectCode = column[String]("procde")
+class ProjectTable(alias: Option[String]) extends Table("relsubdtl", alias) {
+  val releaseNumber = column[String]("relnum")
+  val projectCode = column[String]("prjcod")
   val projectDesc = column[String]("desc")
 }
 
@@ -32,6 +33,7 @@ trait ProjectDal extends SqlestDb {
   
 
   lazy val projectExtractor = extract[Project](
+    releaseNumber = ProjectTable.releaseNumber,
     projectCode = ProjectTable.projectCode,
     projectDesc = ProjectTable.projectDesc
 
