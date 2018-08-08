@@ -20,11 +20,10 @@ text {
 
 
 var json = @{Html(releasesData)}
-//json.replace(/&quot;/g, '"');
 
 var width = 960,
     height = 700,
-    radius = Math.min(width, height) / 2;
+    radius = Math.min(width, height) / 2.2;
 
 var x = d3.scale.linear()
     .range([0, 2 * Math.PI]);
@@ -33,6 +32,15 @@ var y = d3.scale.linear()
     .range([0, radius]);
 
 var color = d3.scale.category20c();
+
+var decisionColourMap = new Map();
+decisionColourMap.set("CANCELLED           ","red");
+decisionColourMap.set("PLACEHOLDER         ","blue");
+decisionColourMap.set("DEFERRED            ","orange");
+decisionColourMap.set("WAITING             ","yellow");
+decisionColourMap.set("REJECTED            ","red");
+decisionColourMap.set("APPROVED            ","green");
+decisionColourMap.set("REVOKED             ","red");
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -57,7 +65,9 @@ var arc = d3.svg.arc()
 
   var path = g.append("path")
     .attr("d", arc)
-    .style("fill", function(d) { return color((d.children ? d : d.parent).name); })
+    .style("fill", function(d) {
+    	if (d.depth == 3) {return decisionColourMap.get(d.releaseDecision)} else	
+   		 	{return color((d.children ? d : d.parent).name); }})
     .on("click", click);
 
   var text = g.append("text")
@@ -66,6 +76,14 @@ var arc = d3.svg.arc()
     .attr("dx", "6") // margin
     .attr("dy", ".35em") // vertical-align
     .text(function(d) { return d.name; });
+
+  var textComponents = g.selectAll("text");
+  textComponents.append("a")
+  .attr("href", function(d) { return d.hyperlink;});
+
+  var hint = g.append("title")
+  	.html(function(d) { return d.projectDesc; });
+
 
   function click(d) {
     // fade out all text elements

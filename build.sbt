@@ -1,4 +1,4 @@
-name := """mealserver"""
+name := """Releases viewer"""
 
 version := "1.0-SNAPSHOT"
 
@@ -12,7 +12,9 @@ libraryDependencies ++= Seq(
   ws,
   specs2 % Test,
   "uk.co.jhc" %% "sqlest" % "0.6.7",
-  "net.sf.jt400" % "jt400" % "8.5"
+  "net.sf.jt400" % "jt400" % "8.5",
+  "org.json4s" %% "json4s-native" % "3.3.0",
+  "org.json4s" %% "json4s-ext" % "3.3.0"   
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
