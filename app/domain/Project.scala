@@ -4,16 +4,9 @@ package domain
  * @author RodgersonM
  */
 
-case class Project(val releaseNumber:String, val projectCode: String, val projectDesc: String) {
-
-
+case class Project(val releaseNumber:String, val name: String, val projectDesc: String, val children:List[SITCycleSubmission]) {
 }
 
-object Project {
+case class SITCycleSubmission(val name:String, val releaseDecision:String, val hyperlink:String) {}
 
-  def formApply(releaseNumber: String, projectCode: String, projectDesc: String) = new Project(releaseNumber,projectCode,projectDesc)
-
-  def formUnapply(project: Project): Option[(String, String, String)] = 
-    Some((project.releaseNumber, project.projectCode, project.projectDesc)) 
-
-}
+case class Release(val name:String, val children:List[Project]) {}
