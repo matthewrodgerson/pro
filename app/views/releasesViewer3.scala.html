@@ -1,4 +1,6 @@
-@(releasesData: String)
+@import domain.ClientCode
+@(releasesData: String, clientList: List[ClientCode], inputFilter:String)
+
 @* list Template File *@
 
 <style>
@@ -15,11 +17,27 @@ text {
 
 </style>
 <body>
+<form>
+    <!-- Status:<br>
+     <select name="Filter" size="5" multiple> -->
+    Select a client code to filter on:
+    <input list="clients" name="Filter"
+    value = @inputFilter>
+    <datalist id="clients">
+        @for(client <- clientList) {
+          <option value=@client.clientCode @if(client.clientCode == inputFilter) {selected}>@client.clientCode</option>
+          }
+    </datalist>
+    <!-- </select> -->
+    <input type="submit" value="Submit">
+    <form action="/" method="get">
+</form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 
 var json = @{Html(releasesData)}
+<!-- var clientList = @clientList(1).clientCode.toString -->
 
 var width = 960,
     height = 700,

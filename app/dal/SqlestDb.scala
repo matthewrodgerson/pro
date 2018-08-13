@@ -17,7 +17,7 @@ trait SqlestDb {
     dataSource.setPrompt(false)
     dataSource
   }
-  //val statementBuilder = sqlest.sql.H2StatementBuilder
+    //val statementBuilder = sqlest.sql.H2StatementBuilder
     val statementBuilder = sqlest.sql.DB2StatementBuilder
   
   //  implicit val database = Database.withDataSource(dataSource, statementBuilder)

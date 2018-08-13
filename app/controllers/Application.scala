@@ -28,8 +28,9 @@ class Application extends Controller {
     val releaseList = releaseDal.getProjects(searchTerm)
     implicit val formats = Serialization.formats(NoTypeHints)
     val starter = "{"+q("name")+":"+q("Releases")+","+q("children")+":" 
+    val clientList = releaseDal.getClients()
     val endJSON = (starter+write(releaseList)+"}")
-    Ok(views.html.main("Project Detail")(views.html.releasesViewer3(endJSON)))
+    Ok(views.html.main("Project Detail")(views.html.releasesViewer3(endJSON,clientList,searchTerm)))
   }
     
 }
