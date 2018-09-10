@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   ws,
   specs2 % Test,
   "uk.co.jhc" %% "sqlest" % "0.6.7",
+  //"uk.co.jhc" %% "sqlest" % "0.8.6",
   "net.sf.jt400" % "jt400" % "8.5",
   "org.json4s" %% "json4s-native" % "3.3.0",
   "org.json4s" %% "json4s-ext" % "3.3.0"   

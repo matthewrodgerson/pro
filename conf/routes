@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                 controllers.Application.searchProjects(searchTerm ?= "", perPage:Int ?=10, pageNo:Int ?=1)
+GET     /                                 controllers.Application.searchProjects(Filter:String ?="", perPage:Int ?=10, pageNo:Int ?=1)
 # GET     /displayProjectPage               controllers.Application.displayProjList(perPage:Int ?=10,pageNo:Int ?=1,searchTerm:String ?="")
 # GET     /displayProjectDets/:projCode      controllers.Application.displayProjDets(projCode:String)
 
