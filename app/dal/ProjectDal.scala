@@ -31,7 +31,7 @@ trait ReleaseDal extends SqlestDb {
   lazy val releaseExtractor = extract[Release](
     name = ProjectTable.releaseNumber,
     children = projectExtractor)
-    .groupBy(ProjectTable.releaseNumber) // another comment
+    .groupBy(ProjectTable.releaseNumber) // another comment MJR3
 
   lazy val projectExtractor = extract[Project](
     releaseNumber = ProjectTable.releaseNumber,
